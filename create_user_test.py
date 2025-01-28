@@ -43,9 +43,9 @@ def test_3_create_user_1_letter_in_first_name_get_error_response():
     negative_assert_simbol("А")
 def test_4_create_user_16_letter_in_first_name_get_error_response():
     negative_assert_simbol("Аааааааааааааааа")
-def test_5_create_user_Eng_letter_in_first_name_get_success_response():
+def test_5_create_user_eng_letter_in_first_name_get_success_response():
     positive_assert("QWErty")
-def test_6_create_user_Rus_letter_in_first_name_get_success_response():
+def test_6_create_user_rus_letter_in_first_name_get_success_response():
     positive_assert("Мария")
 def test_7_create_user_has_space_in_first_name_get_error_response():  #Failed is Good, in Pytest Query
     negative_assert_simbol("Человек и Ко")
@@ -60,10 +60,6 @@ def test_10_create_user_no_first_name_get_error_response():
     assert response.status_code == 400
     assert response.json()["code"] == 400
     assert response.json()["message"] == "Не все необходимые параметры были переданы"
-
-    #user_body = data.user_body.copy()   // Its not work
-    #user_body.pop("firstName")
-    #negative_assert(user_body)
 
 def test_11_create_user_empty_first_name_get_error_response():
     negative_assert("")
